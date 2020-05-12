@@ -19,6 +19,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+
 import json 
 import requests
 
@@ -32,12 +34,19 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from wtforms import TextField, TextAreaField, SubmitField, SelectField, DateField
 from wtforms import ValidationError
 
+from assignment4080_Pele.models.Forms import ExpandForm
+from assignment4080_Pele.models.Forms import CollapseForm
 
 from assignment4080_Pele.models.QueryFormStructure import QueryFormStructure 
 from assignment4080_Pele.models.QueryFormStructure import LoginFormStructure 
 from assignment4080_Pele.models.QueryFormStructure import UserRegistrationFormStructure 
 
 ###from DemoFormProject.Models.LocalDatabaseRoutines import IsUserExist, IsLoginGood, AddNewUser 
+
+app.config['SECRET_KEY'] = 'The first argument to the field'
+
+from flask_bootstrap import Bootstrapbootstrap = Bootstrap(app)
+
 
 db_Functions = create_LocalDatabaseServiceRoutines() 
 
@@ -122,4 +131,31 @@ def stats():
         form1 = form1,
         form2 = form2
     )
+@app.route('/data/types' , methods = ['GET' , 'POST'])
+def types():
 
+    print("types")
+
+    """Renders the about page."""
+    form1 = ExpandForm()
+    form2 = CollapseForm()
+    # df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\trump.csv'))
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/Perfected.csv'))
+    raw_data_table = ''
+    
+    if request.method == 'POST':
+        if request.form['action'] == 'Expand' and form1.validate_on_submit():
+            raw_data_table = df.to_html(classes = 'table table-hover')
+        if request.form['action'] == 'Collapse' and form2.validate_on_submit():
+            raw_data_table = ''
+
+    
+
+    return render_template(
+        'types.html',
+        title='types',
+        year=datetime.now().year,
+        raw_data_table = raw_data_table,
+        form1 = form1,
+        form2 = form2
+    )

@@ -1,0 +1,82 @@
+﻿﻿{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<div class="row my-grid-borders">
+    <p> On this page I will present an explenation to my data</p>
+</div>
+<div class="row my-grid-borders">
+    <h2>The Pokemons' stats presented in the data:</h2>
+</div>
+<div class="row my-grid-borders">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pokemon Index number #</td>
+                <td>The number of which the specific Pokemon appears in the list known as the Pokedex</td>
+            </tr>
+            <tr>
+                <td>Pokemon</td>
+                <td>The official name of the Pokemon</td>
+            </tr>
+            <tr>
+                <td>HP</td>
+                <td>The amount of health points the Pokemon has before it faints.</td>
+            </tr>
+            <tr>
+                <td>Attack</td>
+                <td>The amount of damage a physical attack a Pokemon does</td>
+            </tr>
+            <tr>
+                <td>Defence</td>
+                <td>The amount of resistence a Pokemon has to a physical attack</td>
+            </tr>
+            <tr>
+                <td>Sp. Attack</td>
+                <td>The amount of damage a magical attack a Pokemon does</td>
+            </tr>
+            <tr>
+                <td>Defence</td>
+                <td>The amount of resistence a Pokemon has to a magical attack</td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>The Pokemon with the fastest speed will use their attack first.</td>
+            </tr>
+            <tr>
+                <td>Total/Average</td>
+                <td>The sum of each of the 6 stats a Pokemon has</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row my-grid-borders">
+    <div class="col-md-5 my-grid-borders">
+        <form method="post">
+            {{ form1.csrf_token }}
+            <input class="btn btn-success" type="submit" name="action" value="Expand">
+        </form>
+    </div>
+    <div class="col-md-5 my-grid-borders">
+        <form method="post">
+            {{ form2.csrf_token }}
+            <input class="btn btn-danger" type="submit" name="action" value="Collapse">
+        </form>
+    </div>
+</div>
+<div class="row my-grid-borders">
+    {{ raw_data_table2 | safe}}
+</div>
+
+
+{% endblock %}

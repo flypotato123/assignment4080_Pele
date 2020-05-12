@@ -62,6 +62,7 @@
     <Content Include="assignment4080_Pele\templates\login.html" />
     <Content Include="assignment4080_Pele\templates\gallery.html" />
     <Content Include="assignment4080_Pele\templates\data.html" />
+    <Content Include="assignment4080_Pele\templates\types.html" />
     <Content Include="assignment4080_Pele\templates\stats.html" />
     <Content Include="requirements.txt" />
     <Content Include="assignment4080_Pele\static\content\bootstrap.css" />
