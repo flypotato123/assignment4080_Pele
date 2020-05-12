@@ -5,39 +5,41 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from assignment4080_Pele import app
-from flask import request
+from assignment4080_Pele.models.LocalDatabaseRoutines import create_LocalDatabaseServiceRoutines
 
-import pandas as pd
+
+from datetime import datetime
+from flask import render_template, redirect, request
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from assignment4080_Pele.Models.Forms import ExpandForm
-from assignment4080_Pele.Models.Forms import CollapseForm
-from assignment4080_Pele.Models.Forms import SinglePresidentForm
-from assignment4080_Pele.Models.Forms import AllOfTheAboveForm
-from assignment4080_Pele.Models.Forms import Covid19DayRatio
-from assignment4080_Pele.Models.Forms import OlympicMedals
-from assignment4080_Pele.Models.Forms import YomLayla
-##from assignment4080_Pele.Models.plot_service_functions import plot_case_1
-##from assignment4080_Pele.Models.plot_service_functions import plot_to_img
-##from assignment4080_Pele.Models.plot_service_functions import covid19_day_ratio
-##from assignment4080_Pele.Models.plot_service_functions import get_countries_choices
-##from assignment4080_Pele.Models.general_service_functions import htmlspecialchars
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
-from wtforms.fields.html5 import DateField , DateTimeField
+import json 
+import requests
+
+import io
+import base64
 
 from os import path
-import io
 
-import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
+from flask   import Flask, render_template, flash, request
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
+from wtforms import TextField, TextAreaField, SubmitField, SelectField, DateField
+from wtforms import ValidationError
 
-from flask_bootstrap import Bootstrap
-bootstrap = Bootstrap(app)
 
-app.config['SECRET_KEY'] = 'The first argument to the field'
+from assignment4080_Pele.models.QueryFormStructure import QueryFormStructure 
+from assignment4080_Pele.models.QueryFormStructure import LoginFormStructure 
+from assignment4080_Pele.models.QueryFormStructure import UserRegistrationFormStructure 
+
+###from DemoFormProject.Models.LocalDatabaseRoutines import IsUserExist, IsLoginGood, AddNewUser 
+
+db_Functions = create_LocalDatabaseServiceRoutines() 
 
 @app.route('/')
 @app.route('/home')
@@ -120,3 +122,4 @@ def stats():
         form1 = form1,
         form2 = form2
     )
+

@@ -28,13 +28,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="assignment4080_Pele\Models\Forms.py">
+    <Compile Include="assignment4080_Pele\models\Forms.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="assignment4080_Pele\Models\LocalDatabaseRoutines.py">
+    <Compile Include="assignment4080_Pele\models\LocalDatabaseRoutines.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="assignment4080_Pele\Models\QueryFormStructure.py" />
+    <Compile Include="assignment4080_Pele\models\QueryFormStructure.py" />
     <Compile Include="assignment4080_Pele\QueryFormStructure.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assignment4080_Pele\" />
-    <Folder Include="assignment4080_Pele\Models\" />
+    <Folder Include="assignment4080_Pele\models\" />
     <Folder Include="assignment4080_Pele\static\" />
     <Folder Include="assignment4080_Pele\static\content\" />
     <Folder Include="assignment4080_Pele\static\data\" />
