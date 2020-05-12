@@ -25,7 +25,7 @@ class CollapseForm(FlaskForm):
     value="Collapse"
 
 class SinglePresidentForm(FlaskForm):
-    president = SelectField('President' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('obama', 'Obama'), ('bush', 'Bush') , ('clinton', 'Clinton')])
+    president = SelectField('President' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('stats', 'stats'), ('bush', 'Bush') , ('clinton', 'Clinton')])
     start_date = DateField('Start Date' , format='%Y-%m-%d' , validators = [DataRequired])
     end_date = DateField('End Date' , format='%Y-%m-%d' , validators = [DataRequired])
     kind = SelectField('Chart Kind' , validators = [DataRequired] , choices=[('line', 'line'), ('bar', 'bar')])
@@ -41,11 +41,11 @@ class AllOfTheAboveForm(FlaskForm):
     decimal_field_entry = DecimalField('Enter a Decimal:' , validators = [DataRequired])
     boolean_field_entry = BooleanField('Enter a Boolean:' , validators = [DataRequired])
     radio_field_entry = RadioField('Choose one of:' , validators = [DataRequired] , choices=[('1', 'A'), ('2', 'B'), ('3', 'C') , ('4', 'D')])
-    select_field_entry = SelectField('Select:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('obama', 'Obama'), ('bush', 'Bush') , ('clinton', 'Clinton')])
-    select_field_multiple_entry = SelectMultipleField('Select Multiple:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('obama', 'Obama'), ('bush', 'Bush') , ('clinton', 'Clinton')])
+    select_field_entry = SelectField('Select:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('stats', 'stats'), ('bush', 'Bush') , ('clinton', 'Clinton')])
+    select_field_multiple_entry = SelectMultipleField('Select Multiple:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('stats', 'stats'), ('bush', 'Bush') , ('clinton', 'Clinton')])
     subnmit = SubmitField('submit')
 
 
 class Covid19(FlaskForm):
-    select_field_multiple_entry = SelectMultipleField('Select Multiple:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('obama', 'Obama'), ('bush', 'Bush') , ('clinton', 'Clinton')])
+    select_field_multiple_entry = SelectMultipleField('Select Multiple:' , validators = [DataRequired] , choices=[('trump', 'Trump'), ('stats', 'stats'), ('bush', 'Bush') , ('clinton', 'Clinton')])
     subnmit = SubmitField('submit')

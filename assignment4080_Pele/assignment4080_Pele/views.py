@@ -1,6 +1,7 @@
 """
 Routes and views for the flask application.
 """
+
 from datetime import datetime
 from flask import render_template
 from assignment4080_Pele import app
@@ -12,10 +13,18 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
-from assignment4080_Pele.models.forms import ExpandForm
-from assignment4080_Pele.models.forms import CollapseForm
-from assignment4080_Pele.models.forms import SinglePresidentForm
-from assignment4080_Pele.models.forms import AllOfTheAboveForm
+from assignment4080_Pele.Models.Forms import ExpandForm
+from assignment4080_Pele.Models.Forms import CollapseForm
+from assignment4080_Pele.Models.Forms import SinglePresidentForm
+from assignment4080_Pele.Models.Forms import AllOfTheAboveForm
+from assignment4080_Pele.Models.Forms import Covid19DayRatio
+from assignment4080_Pele.Models.Forms import OlympicMedals
+from assignment4080_Pele.Models.Forms import YomLayla
+##from assignment4080_Pele.Models.plot_service_functions import plot_case_1
+##from assignment4080_Pele.Models.plot_service_functions import plot_to_img
+##from assignment4080_Pele.Models.plot_service_functions import covid19_day_ratio
+##from assignment4080_Pele.Models.plot_service_functions import get_countries_choices
+##from assignment4080_Pele.Models.general_service_functions import htmlspecialchars
 
 from wtforms.fields.html5 import DateField , DateTimeField
 
@@ -27,12 +36,6 @@ from matplotlib.figure import Figure
 
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
-from datetime import datetime
-from flask import render_template
-from assignment4080_Pele import app
-import pandas as pd
-import os
-from os import path
 
 app.config['SECRET_KEY'] = 'The first argument to the field'
 
@@ -74,6 +77,7 @@ def gallery():
         year=datetime.now().year,
         message='A gallery with some special Pokemon with special stats.'
     )
+
 @app.route('/data')
 def data():
     """Renders the contact page."""
@@ -88,10 +92,10 @@ def data():
         message='Dataset.',
 
     )
-@app.route('/data/obama' , methods = ['GET' , 'POST'])
-def obama():
+@app.route('/data/stats' , methods = ['GET' , 'POST'])
+def stats():
 
-    print("Obama")
+    print("stats")
 
     """Renders the about page."""
     form1 = ExpandForm()
@@ -109,8 +113,8 @@ def obama():
     
 
     return render_template(
-        'obama.html',
-        title='Obama',
+        'stats.html',
+        title='stats',
         year=datetime.now().year,
         raw_data_table = raw_data_table,
         form1 = form1,

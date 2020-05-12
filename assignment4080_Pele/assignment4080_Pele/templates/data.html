@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
 
 {% block content %}
 
@@ -8,35 +8,15 @@
 
 
 <table>
-    <tr bgcolor="#cccc00">
-        <td width="100" align="center">	Shedinja	</td>
-        <td align="center" bgcolor="#ffff99"><img src="\static\images\shedinja.png" alt="Shedinja" style="width:150px;height:150x;border:200;"></td>
-        <td align="center">Shedinja is the Pokemon with the least HP, it only has 1 Health point!<br /><br />Although weak in health, it's abilities keep it alive.</td>
+    <tr bgcolor="#ffffff">
+        <td align="center"><a href="{{ url_for('stats') }}">  Pokemon type dataset  </a></td>
+        <td align="center" bgcolor="#0099ff"><img src="\static\images\strong_pokemon.jpg" alt="PokemonStats" style="width:250px;height:150x;border:200;"></td>
+        <td align="center">   This dataset contains the types of all Pokemon up to the sixth generation.   </td>
     </tr>
-    <tr bgcolor="#ffb3da">
-        <td align="center">	Happiny    <br /><br />    Chancey    <br /><br />    Blissey    </td>
-        <td align="center" bgcolor="#ffccff"><img src="\static\images\blissey.png" alt="Happiny line" style="width:200px;height:120px;border:200;"></td>
-        <td align="center">Happiny (Left) and Chancey (Center) are the Pokemon with <br /><br />the least defense and attack. However, when they evolve into<br /><br /> Blissey (Right) they have the most HP out of all the Pokemon.</td>
-    </tr>
-    <tr bgcolor="#ff3333">
-        <td align="center">	Shuckle    </td>
-        <td align="center" bgcolor="#d18b8b"><img src="\static\images\shuckle.png" alt="Shuckle" style="width:150px;height:150x;border:200;"></td>
-        <td align="center">Shuckle is the Pokemon with both the most Defense and Sp. Defense,<br /><br />It is also one of the slowest Pokemon tied with 2 others and one of the<br /><br />Pokemon with the least Sp. Attack tied with 3 others.</td>
-    </tr>
-    <tr bgcolor="#77773c">
-        <td align="center">	Ninjask    </td>
-        <td align="center" bgcolor="#99994d"><img src="\static\images\ninjask.png" alt="Ninjask" style="width:150px;height:150x;border:200;"></td>
-        <td align="center">Ninjask is the fastest Pokemon, Coincidentally,<br /><br />It is also Shedinja's counterpart form.</td>
-    </tr>
-    <tr bgcolor="#ff9900">
-        <td align="center">	Kartana    </td>
-        <td align="center" bgcolor="#ffcc80"><img src="\static\images\kartana.png" alt="Ninjask" style="width:150px;height:150x;border:200;"></td>
-        <td align="center">Kartana is the Pokemon with the highest attack stat.</td>
-    </tr>
-    <tr bgcolor="#007acc">
-        <td align="center">	Wishiwashi    </td>
-        <td align="center" bgcolor="#0099ff"><img src="\static\images\wishwash.png" alt="Ninjask" style="width:150px;height:150x;border:200;"></td>
-        <td align="center">Wishiwashi is the Pokemon with<br /><br />The least total stats of all pokemon<br /><br />when it changes form it's stats are much better.</td>
+    <tr bgcolor="#ffffff">
+        <td align="center"><a href="{{ url_for('stats') }}">  Pokemon stats dataset  </a></td>
+        <td align="center" bgcolor="#0099ff"><img src="\static\images\strong_pokemon.jpg" alt="PokemonStats" style="width:250px;height:150x;border:200;"></td>
+        <td align="center">   This Dataset has the power statistics of all ~1000 Pokemon from the first generation to the present eigth generation.   </td>
     </tr>
 </table>
 {% endblock %}

@@ -31,6 +31,13 @@
     <Compile Include="assignment4080_Pele\Models\Forms.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="assignment4080_Pele\Models\LocalDatabaseRoutines.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="assignment4080_Pele\Models\QueryFormStructure.py" />
+    <Compile Include="assignment4080_Pele\QueryFormStructure.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="assignment4080_Pele\__init__.py" />
     <Compile Include="assignment4080_Pele\views.py" />
@@ -49,10 +56,13 @@
   <ItemGroup>
     <Content Include="assignment4080_Pele\static\data\Perfected.csv" />
     <Content Include="assignment4080_Pele\static\data\pokemon.csv" />
+    <Content Include="assignment4080_Pele\static\data\users.csv" />
     <Content Include="assignment4080_Pele\static\images\shedinja.jpg" />
+    <Content Include="assignment4080_Pele\templates\register.html" />
+    <Content Include="assignment4080_Pele\templates\login.html" />
     <Content Include="assignment4080_Pele\templates\gallery.html" />
     <Content Include="assignment4080_Pele\templates\data.html" />
-    <Content Include="assignment4080_Pele\templates\obama.html" />
+    <Content Include="assignment4080_Pele\templates\stats.html" />
     <Content Include="requirements.txt" />
     <Content Include="assignment4080_Pele\static\content\bootstrap.css" />
     <Content Include="assignment4080_Pele\static\content\bootstrap.min.css" />
