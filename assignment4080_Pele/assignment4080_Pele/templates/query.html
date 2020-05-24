@@ -1,0 +1,28 @@
+﻿{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<h2>{{title}}</h2>
+
+<p>This page lets the user enter two Pokemon stats and find a relation between them.</p>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <form method="post">
+            {{ form1.csrf_token }}
+            {{ wtf.form_field(form1.orderby)}}
+            {{ wtf.form_field(form1.presentby)}}
+            <input class="btn btn-primary" type="submit" value="הצג">
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <h4>What does this chart mean? This chart takes the entire list of Pokemon and plots a point for each Pokemon according to what you entered. For example {{vari1}} is the X axis, and {{vari2}} is the Y axis. <br> From this we can see the average Pokemon and what the trend of each relation is.</h4>
+            <img src={{ chart }} class="img-thumbnail" alt="not found">
+        </div>
+
+    </div>
+
+
+    {% endblock %}

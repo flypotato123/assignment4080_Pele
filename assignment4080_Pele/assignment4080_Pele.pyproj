@@ -57,11 +57,15 @@
     <Content Include="assignment4080_Pele\static\data\Perfected.csv" />
     <Content Include="assignment4080_Pele\static\data\pokemon.csv" />
     <Content Include="assignment4080_Pele\static\data\users.csv" />
+    <Content Include="assignment4080_Pele\static\images\chart.png" />
+    <Content Include="assignment4080_Pele\static\images\Mii.png" />
     <Content Include="assignment4080_Pele\static\images\shedinja.jpg" />
+    <Content Include="assignment4080_Pele\templates\typequery.html" />
     <Content Include="assignment4080_Pele\templates\register.html" />
     <Content Include="assignment4080_Pele\templates\login.html" />
     <Content Include="assignment4080_Pele\templates\gallery.html" />
     <Content Include="assignment4080_Pele\templates\data.html" />
+    <Content Include="assignment4080_Pele\templates\query.html" />
     <Content Include="assignment4080_Pele\templates\types.html" />
     <Content Include="assignment4080_Pele\templates\stats.html" />
     <Content Include="requirements.txt" />
@@ -88,7 +92,6 @@
     <Content Include="assignment4080_Pele\static\scripts\respond.min.js" />
     <Content Include="assignment4080_Pele\static\scripts\_references.js" />
     <Content Include="assignment4080_Pele\templates\about.html" />
-    <Content Include="assignment4080_Pele\templates\contact.html" />
     <Content Include="assignment4080_Pele\templates\index.html" />
     <Content Include="assignment4080_Pele\templates\layout.html" />
   </ItemGroup>

@@ -7,9 +7,12 @@ from flask import render_template
 from assignment4080_Pele import app
 from assignment4080_Pele.models.LocalDatabaseRoutines import create_LocalDatabaseServiceRoutines
 
+import base64from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvasfrom matplotlib.figure import Figure
+
 
 from datetime import datetime
 from flask import render_template, redirect, request
+from assignment4080_Pele.models.Forms import PokedexForm
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -61,14 +64,7 @@ def home():
     )
 
 @app.route('/contact')
-def contact():
-    """Renders the contact page."""
-    return render_template(
-        'contact.html',
-        title='Contact',
-        year=datetime.now().year,
-        message='Your contact page.'
-    )
+
 
 @app.route('/about')
 def about():
@@ -76,8 +72,7 @@ def about():
     return render_template(
         'about.html',
         title='About',
-        year=datetime.now().year,
-        message='Your application description page.'
+        year=datetime.now().year
     )
 @app.route('/gallery')
 def gallery():
@@ -159,3 +154,89 @@ def types():
         form1 = form1,
         form2 = form2
     )
+# -------------------------------------------------------
+# Register new user page
+# -------------------------------------------------------
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = UserRegistrationFormStructure(request.form)
+
+    if (request.method == 'POST' and form.validate()):
+        if (not db_Functions.IsUserExist(form.username.data)):
+            db_Functions.AddNewUser(form)
+            db_table = ""
+
+            flash('Thanks for registering new user - '+ form.FirstName.data + " " + form.LastName.data )
+            # Here you should put what to do (or were to go) if registration was good
+        else:
+            flash('Error: User with this Username already exist ! - '+ form.username.data)
+            form = UserRegistrationFormStructure(request.form)
+
+    return render_template(
+        'register.html', 
+        form=form, 
+        title='Register New User',
+        year=datetime.now().year,
+        repository_name='Pandas',
+        )
+# -------------------------------------------------------
+# Login page
+# This page is the filter before the data analysis
+# -------------------------------------------------------
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginFormStructure(request.form)
+
+    if (request.method == 'POST' and form.validate()):
+        if (db_Functions.IsLoginGood(form.username.data, form.password.data)):
+            flash('Login approved!')
+            return redirect('query')
+        else:
+            flash('Error in - Username and/or password')
+   
+    return render_template(
+        'login.html', 
+        form=form, 
+        title='Login to data analysis',
+        year=datetime.now().year,
+        repository_name='Pandas',
+        )
+
+@app.route('/query' , methods = ['GET' , 'POST'])
+def query():
+
+    print("Query")
+
+    form1 = PokedexForm()
+    chart = ""
+    orderby="Attack"
+    presentby="Defense"
+    chart='static/images/chart.png'
+
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/pokemon.csv'))
+
+    if request.method == 'POST':
+        orderby = form1.orderby.data
+        presentby = form1.presentby.data
+
+        df=df.set_index('Pokemon')
+
+        fig = plt.figure()        ax = fig.add_subplot(111)
+
+        df.plot.scatter(x=orderby,y=presentby, marker='.', ax=ax)
+        chart = plot_to_img(fig)
+            
+    return render_template(
+        'query.html',
+        chart=chart,
+        form1 = form1,
+        vari1=orderby,
+        vari2=presentby
+    )
+
+
+def plot_to_img(fig):    pngImage = io.BytesIO()    FigureCanvas(fig).print_png(pngImage)    pngImageB64String = "data:image/png;base64,"    pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')    return pngImageB64String
+
+
+
+
